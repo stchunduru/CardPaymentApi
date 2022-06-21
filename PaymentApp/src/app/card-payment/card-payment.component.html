@@ -1,0 +1,33 @@
+<div class="jumbotron py-3">
+  <h1 class="display-4 text-center">Card Payment Register</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-card-payment-form></app-card-payment-form>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-hover" onmouseover="" style="cursor: pointer;">
+      <thead class="thead-light">
+        <tr>
+          <th>Card Owner</th>
+          <th>Card Number</th>
+          <th>Expiration Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let card of service.cardList">
+          <td (click)="populateForm(card)">{{card.cardOwnerName}}</td>
+          <td (click)="populateForm(card)">{{card.cardNumber}}</td>
+          <td (click)="populateForm(card)">{{card.expirationDate}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" (click)="onDelete(card.id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
